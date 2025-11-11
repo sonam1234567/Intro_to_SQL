@@ -1,1 +1,16 @@
-SQL lerning process.
+SQL learning process.
+
+MySQL installlation process:
+
+-> Installing MySQL and Creating Databases.
+Go To the website Below to donwload the MySQL workbench.
+https://dev.mysql.com/downloads/workbench/
+
+-> Once MySQL workbench is downloaded we need to install it as required by our system.
+-> To start the MySQL server we need to goto settings and choose MySQL.
+-> Once we choose MySQL we need to run MySQL server.
+-> Now once the server is running on the nackend we need to go to applications and run the MySQL workbench.
+-> Now we select the local instance and once done with setting the password and all the settings we can create databases.
+
+-> Once we are inside we can see schema (Database schema: A blueprint for a database that defines its structure, including tables, columns, data types, and the relationships between them. Schemas ensure data is consistent, organized, and easier to query and manage. )
+->Inside the schema we can find the tables if we have generated any.
