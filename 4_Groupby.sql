@@ -22,3 +22,18 @@ select * from Parks_and_Recreation.employee_demographics;
 
 -- deleting a row with certain condition.
 delete from Parks_and_Recreation.employee_demographics where employee_id = 20;
+
+-- Having vs Where.
+
+-- only having average of age greater than 40.
+select gender, avg(age) from Parks_and_Recreation.employee_demographics group by gender having avg(age) > 40;
+
+-- having works only for aggreagated functions after the group by runs.
+-- if we have to filter on the aggregated funtions we have to use having clause.
+select occupation, avg(salary) 
+from Parks_and_Recreation.employee_salary 
+where occupation like '%manage%' 
+group by occupation 
+having avg(salary) > 75000;
+
+
