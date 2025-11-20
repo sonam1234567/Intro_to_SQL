@@ -563,7 +563,6 @@ Intel,SF Bay Area,Hardware,201,NULL,12/6/2022,Post-IPO,United States,12
 BuzzFeed,New York City,Media,180,0.12,12/6/2022,Post-IPO,United States,696
 Weedmaps,Los Angeles,Other,175,0.25,12/6/2022,Acquired,United States,NULL
 Adobe,SF Bay Area,Marketing,100,NULL,12/6/2022,Post-IPO,United States,2
-Chipper Cash,SF Bay Area,Finance,50,0.12,12/6/2022,Series C,United States,302
 Stash,New York City,Finance,32,0.08,12/6/2022,Unknown,United States,480
 Perimeter 81,Tel Aviv,Security,20,0.08,12/6/2022,Series C,Israel,165
 Koinly,London,Crypto,16,0.14,12/6/2022,Unknown,United Kingdom,NULL
@@ -2360,4 +2359,5 @@ Yahoo,SF Bay Area,Consumer,1600,0.2,2/9/2023,Acquired,United States,6
 Hibob,Tel Aviv,HR,70,0.3,3/30/2020,Series A,Israel,45
 Casper,New York City,Retail,NULL,NULL,9/14/2021,Post-IPO,United States,339
 Wildlife Studios,Sao Paulo,Consumer,300,0.2,11/28/2022,Unknown,Brazil,260
+
 
