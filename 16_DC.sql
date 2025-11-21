@@ -12,8 +12,11 @@
 
 -- 1.Staging the datasets.
 -- When cleaning the data we don't want to touch the raw data sets so we create a staging data to be on the safer side.
+drop table if exists layoffs_staging;
 Create table layoffs_staging
 like layoffs;
+
+select * from world_layoffs.layoffs_staging;
 
 -- Inserting the data into the staging table.
 insert world_layoffs.layoffs_staging select * from world_layoffs.layoffs;

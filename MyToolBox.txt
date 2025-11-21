@@ -1,0 +1,15 @@
+1. All the datasets are not getting imported in mysql if we try to import it using the csv extension file.
+-> Solution: We need to import the data sets in json extension file.
+
+2. All the json files data are imported as only text.
+-> Solution: Inorder to convert all the column to their respective data type first we need to convert the text 'Null' to null.
+for example:
+update tablename
+set date = null where date = 'Null';
+The above query will track all the 'Null' string in the column date and convert it to null value.
+After doing so we can convert the date text to date data type.
+
+3. After all the null values are taken care of we need to convert data to it's respective data types.
+->Solution
+Alter table world_layoffs.layoffs_staging2
+modify column funds_raised_millions INT;

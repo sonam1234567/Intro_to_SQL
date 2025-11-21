@@ -1,5 +1,6 @@
+-- Since we have imported the data from json file all the values along with Null is represented as text.
 -- Creating a layoffs_Staging2 for deleting the duplicates.
-
+drop table if exists layoffs_staging2;
 CREATE TABLE `layoffs_staging2` (
   `company` text,
   `location` text,
@@ -52,17 +53,18 @@ where country like 'United States%';
 select date, str_to_date(date,'%m/%d/%Y') from world_layoffs.layoffs_staging2;
 
 -- Need to update the null date values.
+-- converting the date to 'Null' string type to NULL.
 update world_layoffs.layoffs_staging2
-set date = 'Null'
-where date = '0/0/0';
+set date = null where date = 'NULL';
 
--- We have skipped the null value date as it was giving us error, we need to correct that data later.
+select * from world_layoffs.layoffs_staging2 where date is Null or date = '';
+
+
 update world_layoffs.layoffs_staging2
-set date = str_to_date(date,'%m/%d/%Y')
-where date = 'Null';
+set date = str_to_date(date,'%m/%d/%Y');
 
 
--- Now we change the data type to date.(Need to fix the null values before we change the datatype.)
+-- Now we change the data type to date.
 Alter table world_layoffs.layoffs_staging2
 modify column date DATE;
 
@@ -75,14 +77,14 @@ select * from world_layoffs.layoffs_staging2 where company = 'Blackbaud';
 -- Here we are not using is null as we have set the null to data type of text when creating the table.
 select * from world_layoffs.layoffs_staging2 where company = ' ' or company = 'null';
 select * from world_layoffs.layoffs_staging2 where location = 'NULL' or location = '';
-select * from world_layoffs.layoffs_staging2 where industry = 'NULL' or industry = '';
+select * from world_layoffs.layoffs_staging2 where industry is NULL or industry = '';
 -- It is quite tryicky if we need to delete these data. But if both the percentage_laid_off and total_laid_off is Null or blank I beleive that data wont affect much.
-select * from world_layoffs.layoffs_staging2 where total_laid_off = 'NULL' or total_laid_off = '';
-select * from world_layoffs.layoffs_staging2 where percentage_laid_off = 'NULL' or percentage_laid_off = '';
-select * from world_layoffs.layoffs_staging2 where date = 'NULL' or date = '';
-select * from world_layoffs.layoffs_staging2 where stage = 'NULL' or stage = '';
+select * from world_layoffs.layoffs_staging2 where total_laid_off is NULL or total_laid_off = '';
+select * from world_layoffs.layoffs_staging2 where percentage_laid_off is NULL or percentage_laid_off = '';
+select * from world_layoffs.layoffs_staging2 where date is NULL;
+select * from world_layoffs.layoffs_staging2 where stage is NULL or stage = '';
 select * from world_layoffs.layoffs_staging2 where country = 'NULL' or country = '';
-select * from world_layoffs.layoffs_staging2 where funds_raised_millions = 'NULL' or funds_raised_millions = '';
+select * from world_layoffs.layoffs_staging2 where funds_raised_millions is NULL or funds_raised_millions = '';
 
 
 -- Since we found there are some blank in the industry column so we check if there is any way we can insert those data from the existing data sets.
@@ -125,6 +127,21 @@ drop column row_num;
 
 select * from world_layoffs.layoffs_staging2;
 
-
--- Need to work with datatype change in the date. ( convert form text to date.)
 -- Need to remove or do something about the null data in date inorder to proceed with above step.
+-- Now converting all the string 'Null' to null.
+update world_layoffs.layoffs_staging2
+set industry = null where industry = 'NULL';
+
+update world_layoffs.layoffs_staging2
+set total_laid_off = null where total_laid_off = 'NULL';
+
+update world_layoffs.layoffs_staging2
+set percentage_laid_off = null where percentage_laid_off = 'NULL';
+
+update world_layoffs.layoffs_staging2
+set funds_raised_millions = null where funds_raised_millions = 'NULL';
+
+update world_layoffs.layoffs_staging2
+set stage = null where stage = 'NULL';
+
+
