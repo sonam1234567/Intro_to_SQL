@@ -13,3 +13,4 @@ After doing so we can convert the date text to date data type.
 ->Solution
 Alter table world_layoffs.layoffs_staging2
 modify column funds_raised_millions INT;
+
